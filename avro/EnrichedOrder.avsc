@@ -1,0 +1,14 @@
+{
+  "type" : "record",
+  "name" : "EnrichedOrder",
+  "namespace" : "space.zeinab.demo.kafka",
+  "fields" : [
+          { "name" : "customerId", "type" : "string" },
+          { "name" : "productId", "type" : "string" },
+          { "name" : "orderCount", "type" : "int" },
+          { "name" : "productPrice", "type" : "double" },
+          { "name" : "stockCount", "type" : "int" },
+          { "name" : "earnedLoyaltyPoints", "type" : "int" },
+          { "name" : "totalPrice", "type" : "double" }
+        ]
+}

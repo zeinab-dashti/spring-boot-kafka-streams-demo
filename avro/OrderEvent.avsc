@@ -1,0 +1,11 @@
+{
+  "type" : "record",
+  "name" : "Order",
+  "namespace" : "space.zeinab.demo.kafka",
+  "fields" : [
+          { "name" : "customerId", "type" : "string" },
+          { "name" : "productId", "type" : "string" },
+          { "name" : "orderCount", "type" : "int" }
+        ]
+}
+

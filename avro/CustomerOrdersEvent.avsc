@@ -1,0 +1,14 @@
+{
+  "type" : "record",
+  "name" : "CustomerOrders",
+  "namespace" : "space.zeinab.demo.kafka",
+  "fields" : [
+          { "name" : "orderId", "type" : "string" },
+          { "name" : "customerId", "type" : "string" },
+          { "name" : "productId", "type" : "string" },
+          { "name" : "orderCount", "type" : "int" },
+          { "name" : "shipDate", "type" : "string" },
+          { "name" : "loyaltyPoints", "type" : "int" },
+          { "name" : "earnedLoyaltyPoints", "type" : "int",  "default": 0}
+        ]
+}

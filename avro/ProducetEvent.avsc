@@ -1,0 +1,12 @@
+{
+  "type" : "record",
+  "name" : "Product",
+  "namespace" : "space.zeinab.demo.kafka",
+  "fields" : [
+          { "name" : "productId", "type" : "string" },
+          { "name" : "productName", "type" : "string" },
+          { "name" : "productPrice", "type" : "double" },
+          { "name" : "stockCount", "type" : "int" }
+        ]
+}
+
