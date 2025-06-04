@@ -30,7 +30,7 @@ public class OrderController {
                 .produceOrder(orderDto)
                 .whenComplete((result, ex) -> {
                     if (ex == null) {
-                        log.info("Order sent to topic: {}", result.getProducerRecord().value());
+                        log.info("Order sent to topic: " + result.getProducerRecord().value());
                     } else {
                         log.error("Failed to send order", ex);
                         throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), ex);
@@ -44,7 +44,7 @@ public class OrderController {
                 .produceProduct(productDto)
                 .whenComplete((result, ex) -> {
                     if (ex == null) {
-                        log.info("Product sent to topic: {}", result.getProducerRecord().value());
+                        log.info("Product sent to topic: " + result.getProducerRecord().value());
                     } else {
                         log.error("Failed to send product", ex);
                         throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), ex);
@@ -58,7 +58,7 @@ public class OrderController {
                 .produceCustomerOrders(customerOrdersDto)
                 .whenComplete((result, ex) -> {
                     if (ex == null) {
-                        log.info("Customer orders sent to topic: {}", result.getProducerRecord().value());
+                        log.info("Customer orders sent to topic: " + result.getProducerRecord().value());
                     } else {
                         log.error("Failed to send customer orders", ex);
                         throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), ex);

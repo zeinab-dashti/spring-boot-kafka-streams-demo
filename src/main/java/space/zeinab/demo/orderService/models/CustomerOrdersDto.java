@@ -1,7 +1,6 @@
 package space.zeinab.demo.orderService.models;
 
 import lombok.Getter;
-import space.zeinab.demo.kafka.CustomerOrders;
 
 @Getter
 public class CustomerOrdersDto {
@@ -14,7 +13,7 @@ public class CustomerOrdersDto {
     private int loyaltyPoints;
     private int earnedLoyaltyPoints;
 
-    public CustomerOrders toCustomerOrders() {
+ /*   public CustomerOrders toCustomerOrders() {
         return CustomerOrders.newBuilder()
                 .setOrderId(orderId)
                 .setCustomerId(customerId)
@@ -24,5 +23,5 @@ public class CustomerOrdersDto {
                 .setShipDate(shipDate)
                 .setEarnedLoyaltyPoints(earnedLoyaltyPoints)
                 .build();
-    }
+    }*/
 }

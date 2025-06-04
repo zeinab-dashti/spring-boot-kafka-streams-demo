@@ -15,16 +15,16 @@ import java.util.concurrent.CompletableFuture;
 public class OrderProducer {
     private static final String ORDER_TOPIC = "demo-stream-order-topic";
 
-    private final KafkaTemplate<String, Order> kafkaTemplate;
+    private final KafkaTemplate<String, OrderDto> kafkaTemplate;
 
-    public OrderProducer(final KafkaTemplate<String, Order> kafkaTemplate) {
+    public OrderProducer(final KafkaTemplate<String, OrderDto> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     @Async
-    public CompletableFuture<SendResult<String, Order>> produceOrder(OrderDto orderDto) {
+    public CompletableFuture<SendResult<String, OrderDto>> produceOrder(OrderDto orderDto) {
         return kafkaTemplate
-                .send(MessageBuilder.withPayload(orderDto.toOrder())
+                .send(MessageBuilder.withPayload(orderDto)
                         .setHeader(KafkaHeaders.KEY, orderDto.getProductId())
                         .setHeader(KafkaHeaders.TOPIC, ORDER_TOPIC)
                         .build());

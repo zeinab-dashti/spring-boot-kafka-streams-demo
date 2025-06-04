@@ -6,7 +6,6 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import space.zeinab.demo.kafka.Product;
 import space.zeinab.demo.orderService.models.ProductDto;
 
 import java.util.concurrent.CompletableFuture;
@@ -15,16 +14,16 @@ import java.util.concurrent.CompletableFuture;
 public class ProductProducer {
     private static final String PRODUCT_TOPIC = "demo-stream-product-topic";
 
-    private final KafkaTemplate<String, Product> kafkaTemplate;
+    private final KafkaTemplate<String, ProductDto> kafkaTemplate;
 
-    public ProductProducer(final KafkaTemplate<String, Product> kafkaTemplate) {
+    public ProductProducer(final KafkaTemplate<String, ProductDto> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     @Async
-    public CompletableFuture<SendResult<String, Product>> produceProduct(ProductDto productDto) {
+    public CompletableFuture<SendResult<String, ProductDto>> produceProduct(ProductDto productDto) {
         return kafkaTemplate
-                .send(MessageBuilder.withPayload(productDto.toProduct())
+                .send(MessageBuilder.withPayload(productDto)
                         .setHeader(KafkaHeaders.KEY, productDto.getProductId())
                         .setHeader(KafkaHeaders.TOPIC, PRODUCT_TOPIC)
                         .build());
